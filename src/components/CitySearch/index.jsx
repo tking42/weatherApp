@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import CityAutocomplete from "../CityAutocomplete/index.jsx";
+import WeatherInfo from "../WeatherInfo/index.jsx";
+import ForecastList from "../ForcastList/index.jsx";
 import Button from '@mui/material/Button';
 
 function CitySearch() {
-    const [cities, setCities] = useState([])
-    const [selectedCity, setSelectedCity] = useState(null)
-    const [temperature, setTemperature] = useState(null)
-    const [condition, setCondition] = useState(null)
+    const [cities, setCities] = useState([]);
+    const [selectedCity, setSelectedCity] = useState(null);
+    const [temperature, setTemperature] = useState(null);
+    const [condition, setCondition] = useState(null);
+    const [forecast, setForecast] = useState([]);
+    const [hidden, setHidden] = useState('hidden')
+
     const getCities = async () => {
         const response = await fetch('../../public/city.list.json');
-        const cities = await response.json()
-        setCities(cities)
-    }
+        const cities = await response.json();
+        setCities(cities);
+    };
 
     useEffect(() => {
         getCities();
@@ -22,37 +26,28 @@ function CitySearch() {
 
     const handleSearch = async () => {
         if (selectedCity) {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${selectedCity.id}&APPID=9f3b1b9c94e3da96d1ab9a74cfa5a586&units=metric`)
-            const weatherData = await response.json()
-            console.log(weatherData)
-            setTemperature(weatherData.main.temp + '℃')
-            setCondition('Condition: ' + weatherData.weather[0].main)
+            const current = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${selectedCity.id}&APPID=9f3b1b9c94e3da96d1ab9a74cfa5a586&units=metric`);
+            const weatherData = await current.json();
+            const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${selectedCity.id}&APPID=9f3b1b9c94e3da96d1ab9a74cfa5a586&units=metric`);
+            const forecastData = await forecastResponse.json();
+            setTemperature(weatherData.main.temp + '℃');
+            setCondition(weatherData.weather[0].main);
+            setForecast(forecastData.list);
+            setHidden('')
         }
     }
 
     return (
-        <div>
-            <Autocomplete
-                disablePortal
-                options={gbCities.reverse()}
-                getOptionLabel={(option) => option.name}
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="Location" />}
-                isOptionEqualToValue={(option, value) => option.name === value.name}
-                renderOption={(props, option) => (
-                    <li {...props} key={`${option.name}-${option.id || option.index}`}>
-                        {option.name}
-                    </li>
-                )}
-                onChange={(event, value) => {
-                    setSelectedCity(value);
-                }}
-            />
-            <Button onClick={handleSearch} variant="contained">Search</Button>
-            <p>{temperature}</p>
-            <p>{condition}</p>
+        <div className="p-4">
+            <CityAutocomplete cities={gbCities} setSelectedCity={setSelectedCity} />
+            <div className='mt-2 text-center'>
+                <Button onClick={handleSearch} variant="contained">Search</Button>
+            </div>
+            <WeatherInfo hidden={hidden} temperature={temperature} condition={condition} />
+            <ForecastList hidden={hidden} forecast={forecast} />
         </div>
     );
 }
 
 export default CitySearch;
+
