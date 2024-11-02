@@ -1,13 +1,11 @@
 import './App.css'
-import Heading from "./components/Heading/index.jsx";
-import CitySearch from "./components/CitySearch/index.jsx";
+import Results from "./components/Results/index.jsx";
 
 function App() {
 
     return (
     <main>
-        <Heading></Heading>
-        <CitySearch></CitySearch>
+        <Results></Results>
     </main>
   )
 }
