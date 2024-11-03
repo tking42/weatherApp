@@ -16,7 +16,7 @@ function ForecastList({ forecast, hidden }) {
     return (
         <div className={`mt-4 rounded-lg p-4 mx-4 shadow-2xl flex flex-col justify-center ${hidden}`}>
             <p className='text-2xl font-bold m-4'>5 day forecast</p>
-            <div className='flex justify-between p-4'>
+            <div className='flex sm:justify-between justify-evenly sm:flex-nowrap flex-wrap p-4'>
                 {forecast.map((d, index) => {
                     if (d.dt_txt.slice(11, 16) === "15:00") {
                         return (

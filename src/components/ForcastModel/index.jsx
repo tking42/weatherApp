@@ -14,7 +14,7 @@ function ForecastModal({ selectedForecast, forecast, onClose }) {
                     <p>{formatDate(selectedForecast)}</p>
                     <p className="close cursor-pointer" onClick={onClose}>&times;</p>
                 </div>
-                <div className='flex-row flex'>
+                <div className='sm:flex-row flex sm:flex-nowrap flex-wrap'>
                     {forecast.map((d, index) => {
                         if (d.dt_txt.slice(0, -9) === selectedForecast.dt_txt.slice(0, -9)) {
                             return (

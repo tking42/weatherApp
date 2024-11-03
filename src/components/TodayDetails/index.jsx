@@ -5,9 +5,9 @@ function TodayDetails({ weather }) {
     }
 
     return (
-        <div className="rounded-lg p-4 mx-4 my-1 shadow-xl flex flex-col justify-center">
+        <div className="rounded-lg p-4 sm:mx-4 mx-2 my-1 shadow-xl flex flex-col justify-center">
             <p className="text-2xl font-bold m-4">Details</p>
-            <div className='flex justify-between p-4'>
+            <div className='flex sm:flex-nowrap flex-wrap sm:justify-between justify-evenly gap-4 sm:gap-0 p-4'>
                 <p className="text-lg text-gray-800">Sunrise: <br/> {convertTime(weather.sys.sunrise).slice(-8, -3)}</p>
                 <p className="text-lg text-gray-800">Sunset: <br/> {convertTime(weather.sys.sunset).slice(-8, -3)}</p>
                 <p className="text-lg text-gray-800">Min Temp: <br/> {weather.main.temp_min}℃</p>
