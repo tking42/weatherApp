@@ -31,7 +31,6 @@ function Nav({setSelectedCity, setForecast, setWeather, setHidden}) {
         }
     }
 
-
     return (
             <div className='sm:flex sm:items-center sm:p-4 sm:mx-4 sm:justify-between gap-4 mx-4'>
                 <h1 className='text-3xl font-bold sm:my-0 my-2'>UK Weather</h1>

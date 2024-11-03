@@ -32,7 +32,6 @@ function ForecastList({ forecast, hidden }) {
                     return null;
                 })}
             </div>
-
             {selectedForecast && (
                 <ForecastModal
                     selectedForecast={selectedForecast}
@@ -43,5 +42,4 @@ function ForecastList({ forecast, hidden }) {
         </div>
     );
 }
-
 export default ForecastList;
