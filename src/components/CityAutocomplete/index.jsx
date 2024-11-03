@@ -24,7 +24,7 @@ function CityAutocomplete({ cities, setCity }) {
                     </li>
                 )}
                 onChange={(event, value) => {
-                    setCity(value);
+                    setCity(value)
                 }}
             />
         </div>
