@@ -808,6 +808,18 @@ video {
   height: 4rem;
 }
 
+.h-36 {
+  height: 9rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.h-28 {
+  height: 7rem;
+}
+
 .min-h-96 {
   min-height: 24rem;
 }
