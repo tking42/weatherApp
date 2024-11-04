@@ -1,8 +1,5 @@
-# React + Vite
+## To-Do List Application - README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the UK Weather Application, a weather app built using React and Open Weather Maps API. This application allows the user to get real-time weather updates for a 5 day forecast amywher in the UK.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
