@@ -10,7 +10,7 @@ function ForecastModal({ selectedForecast, forecast, onClose }) {
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
             <div className="bg-white p-5 rounded-lg shadow-lg flex flex-col mx-2">
-                <div className='flex mb-10 justify-between mx-10'>
+                <div className='flex mb-10 justify-between ms-6'>
                     <p>{formatDate(selectedForecast)}</p>
                     <p className="close cursor-pointer" onClick={onClose}>&times;</p>
                 </div>

@@ -7,7 +7,7 @@ function Nav({setSelectedCity, setForecast, setWeather, setHidden}) {
     const [cities, setCities] = useState([]);
     const [city, setCity] = useState(null);
     const getCities = async () => {
-        const response = await fetch('../../public/city.list.json')
+        const response = await fetch('./city.list.json')
         const cities = await response.json();
         setCities(cities);
     };
@@ -30,6 +30,7 @@ function Nav({setSelectedCity, setForecast, setWeather, setHidden}) {
             setHidden('');
         }
     }
+
 
     return (
             <div className='sm:flex sm:items-center sm:p-4 sm:mx-4 sm:justify-between gap-4 mx-4'>

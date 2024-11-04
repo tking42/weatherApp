@@ -10,7 +10,7 @@ function App() {
     const [hidden, setHidden] = useState('hidden');
 
     return (
-        <div className="sm:p-2 sm:mx-36 ">
+        <div className="sm:mx-36">
             <Nav selectedCity={selectedCity} setSelectedCity={setSelectedCity} setForecast={setForecast} setWeather={setWeather} setHidden={setHidden}></Nav>
             <Results selectedCity={selectedCity} forecast={forecast} weather={weather} hidden={hidden}></Results>
         </div>
